@@ -57,6 +57,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.6"
+  dartz:
+    dependency: "direct main"
+    description:
+      name: dartz
+      sha256: e6acf34ad2e31b1eb00948692468c30ab48ac8250e0f0df661e29f12dd252168
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.10.1"
   dio:
     dependency: "direct main"
     description:
@@ -128,6 +136,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "10.6.0"
+  get:
+    dependency: "direct main"
+    description:
+      name: get
+      sha256: e4e7335ede17452b391ed3b2ede016545706c01a02292a6c97619705e7d2a85e
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.6.6"
   http_parser:
     dependency: transitive
     description:
@@ -271,4 +287,4 @@ packages:
     version: "0.3.0"
 sdks:
   dart: ">=3.2.1 <4.0.0"
-  flutter: ">=1.16.0"
+  flutter: ">=3.13.0"

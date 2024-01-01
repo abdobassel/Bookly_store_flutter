@@ -1,5 +1,8 @@
 import 'package:book_store/apiDio/apidio.dart';
+import 'package:book_store/constants.dart';
+import 'package:book_store/features/Splash/presintaion/views/SplashView/splashViewScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
   DioHelper.init();
@@ -11,6 +14,11 @@ class BooklyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return GetMaterialApp(
+      theme: ThemeData().copyWith(scaffoldBackgroundColor: kPrimaryColor),
+      debugShowCheckedModeBanner: false,
+      home: const SplashView(),
+      routes: {},
+    );
   }
 }
