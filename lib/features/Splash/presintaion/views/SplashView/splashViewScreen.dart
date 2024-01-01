@@ -11,8 +11,14 @@ class SplashView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
-        leading: Container(
-            decoration: BoxDecoration(), child: Image.asset(AssetsData.Logo)),
+        leading: Padding(
+          padding: const EdgeInsetsDirectional.only(start: 10),
+          child: Container(
+              height: 40,
+              width: double.infinity,
+              decoration: BoxDecoration(),
+              child: Image.asset(AssetsData.Logo)),
+        ),
       ),
       body: SplashViewBody(),
     );
