@@ -1,5 +1,6 @@
 import 'package:book_store/constants.dart';
 import 'package:book_store/core/utilis/styles.dart';
+import 'package:book_store/features/home/presintation/views/widgets/book_details_items.dart';
 import 'package:book_store/features/home/presintation/views/widgets/customListViewItem.dart';
 import 'package:book_store/features/home/presintation/views/widgets/custom_image_item.dart';
 import 'package:book_store/features/home/presintation/views/widgets/ratingRowSellerItem.dart';
@@ -25,58 +26,19 @@ class BookDeatailsViewBody extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  'Free Palestine ',
-                  style: Styles.textStyle30,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  'Abderahman Bassel',
-                  style: Styles.textStyle20.copyWith(
-                    color: Colors.grey[400],
-                    fontFamily: KGtSectraFineFontFamily,
-                  ),
-                ),
-                SizedBox(
-                  height: 8,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      FontAwesomeIcons.solidStar,
-                      color: Colors.yellow,
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Text(
-                      '4.6',
-                      style: Styles.textStyle20
-                          .copyWith(fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Text(
-                      '(2552)',
-                      style: Styles.textStyle16,
-                    ),
-                  ],
-                )
-              ],
-            ),
-          )
+          BookDetailsItems(),
+          BooksAction(),
         ],
       ),
     );
+  }
+}
+
+class BooksAction extends StatelessWidget {
+  const BooksAction({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
