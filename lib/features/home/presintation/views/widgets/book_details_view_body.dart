@@ -1,6 +1,7 @@
 import 'package:book_store/constants.dart';
 import 'package:book_store/core/utilis/styles.dart';
 import 'package:book_store/features/home/presintation/views/widgets/book_details_items.dart';
+import 'package:book_store/features/home/presintation/views/widgets/books_actions.dart';
 import 'package:book_store/features/home/presintation/views/widgets/customListViewItem.dart';
 import 'package:book_store/features/home/presintation/views/widgets/custom_image_item.dart';
 import 'package:book_store/features/home/presintation/views/widgets/ratingRowSellerItem.dart';
@@ -18,6 +19,7 @@ class BookDeatailsViewBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: width * .18),
@@ -27,18 +29,12 @@ class BookDeatailsViewBody extends StatelessWidget {
             height: 30,
           ),
           BookDetailsItems(),
+          SizedBox(
+            height: 20,
+          ),
           BooksAction(),
         ],
       ),
     );
-  }
-}
-
-class BooksAction extends StatelessWidget {
-  const BooksAction({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }
