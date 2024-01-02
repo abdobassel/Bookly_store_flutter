@@ -16,43 +16,54 @@ class BookDeatailsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     print(width);
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: width * .18),
-            child: CustomImageItem(),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          BookDetailsItems(),
-          const SizedBox(
-            height: 20,
-          ),
-          BooksAction(),
-          const SizedBox(
-            height: 40,
-          ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: Text(
-              'You Can Also Any ...',
-              style: Styles.textStyle18.copyWith(fontWeight: FontWeight.bold),
+    return CustomScrollView(
+      physics: BouncingScrollPhysics(),
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: width * .18),
+                  child: CustomImageItem(),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                BookDetailsItems(),
+                const SizedBox(
+                  height: 20,
+                ),
+                BooksAction(),
+                Expanded(
+                  child: const SizedBox(
+                    height: 40,
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'You Can Also Any ...',
+                    style: Styles.textStyle18
+                        .copyWith(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                SimilarListViewBooksHorzntal(),
+                const SizedBox(
+                  height: 30,
+                ),
+              ],
             ),
           ),
-          const SizedBox(
-            height: 15,
-          ),
-          SimilarListViewBooksHorzntal(),
-          const SizedBox(
-            height: 30,
-          ),
-        ],
-      ),
+        )
+      ],
     );
   }
 }
