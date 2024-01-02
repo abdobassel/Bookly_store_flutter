@@ -5,6 +5,7 @@ import 'package:book_store/features/home/presintation/views/widgets/books_action
 import 'package:book_store/features/home/presintation/views/widgets/customListViewItem.dart';
 import 'package:book_store/features/home/presintation/views/widgets/custom_image_item.dart';
 import 'package:book_store/features/home/presintation/views/widgets/ratingRowSellerItem.dart';
+import 'package:book_store/features/home/presintation/views/widgets/similar_listView_horzintalBooks.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -25,14 +26,31 @@ class BookDeatailsViewBody extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: width * .18),
             child: CustomImageItem(),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           BookDetailsItems(),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           BooksAction(),
+          const SizedBox(
+            height: 40,
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              'You Can Also Any ...',
+              style: Styles.textStyle18.copyWith(fontWeight: FontWeight.bold),
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          SimilarListViewBooksHorzntal(),
+          const SizedBox(
+            height: 30,
+          ),
         ],
       ),
     );
