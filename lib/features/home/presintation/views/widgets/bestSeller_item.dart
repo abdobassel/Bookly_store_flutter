@@ -1,6 +1,8 @@
 import 'package:book_store/core/utilis/assets.dart';
 import 'package:book_store/core/utilis/styles.dart';
+import 'package:book_store/features/home/presintation/views/widgets/ratingRowSellerItem.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BestSellerListItem extends StatelessWidget {
   const BestSellerListItem({super.key});
@@ -25,35 +27,39 @@ class BestSellerListItem extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 20,
+            width: 30,
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * .5,
-                child: Text(
-                  'Hary Potter HEllo  HleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeo',
-                  style: Styles.textStyle22,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * .5,
+                  child: Text(
+                    'Hary Potter HEllo  HleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeo',
+                    style: Styles.textStyle22,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 4,
-              ),
-              Text(
-                'Hary Potter',
-                style: Styles.textStyle16,
-              ),
-              Row(
-                children: [
-                  Text('19' r'$',
-                      style: Styles.textStyle22
-                          .copyWith(fontWeight: FontWeight.bold))
-                ],
-              )
-            ],
+                SizedBox(
+                  height: 4,
+                ),
+                Text(
+                  'Hary Potter',
+                  style: Styles.textStyle16,
+                ),
+                Row(
+                  children: [
+                    Text('19' r'$',
+                        style: Styles.textStyle22
+                            .copyWith(fontWeight: FontWeight.bold)),
+                    Spacer(),
+                    RatingItemSeller(),
+                  ],
+                )
+              ],
+            ),
           )
         ],
       ),

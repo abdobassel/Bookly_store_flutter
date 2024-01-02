@@ -3,6 +3,7 @@ import 'package:book_store/core/utilis/styles.dart';
 import 'package:book_store/features/home/presintation/views/widgets/CustomAppBar.dart';
 import 'package:book_store/features/home/presintation/views/widgets/bestSeller_item.dart';
 import 'package:book_store/features/home/presintation/views/widgets/futuredListView.dart';
+import 'package:book_store/features/home/presintation/views/widgets/listview_seller.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -31,7 +32,7 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          BestSellerListItem(),
+          BestSellerListView(),
         ],
       ),
     );
