@@ -1,11 +1,13 @@
 import 'dart:async';
 
 import 'package:book_store/constants.dart';
+import 'package:book_store/core/utilis/app_router.dart';
 import 'package:book_store/core/utilis/assets.dart';
 import 'package:book_store/features/home/presintation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -29,11 +31,13 @@ class _SplashViewBodyState extends State<SplashViewBody>
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        Get.to(
-          () => HomeView(),
-          transition: Transition.fade,
-          duration: KTranstionDuration,
-        );
+        // Get.to(
+        //  () => HomeView(),
+        //  transition: Transition.fade,
+        // duration: KTranstionDuration,
+        // );
+
+        GoRouter.of(context).push(AppRouter.KHomeView);
       },
     );
   }
