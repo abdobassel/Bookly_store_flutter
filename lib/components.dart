@@ -98,11 +98,11 @@ Widget ItemArticleBuilder(
 Widget DefaultTextForm({
   required TextEditingController controller,
   required String? labeltext,
-  required String? Function(String?)? validate,
+  String? Function(String?)? validate,
   String? Function(String?)? onSubmit,
   String? Function(String?)? onchange, //null-safety
   required TextInputType type,
-  required IconData prefix,
+  IconData? prefix,
   bool isPassword = false,
   IconData? suffixIcon,
   Function()? showPassfunc,
