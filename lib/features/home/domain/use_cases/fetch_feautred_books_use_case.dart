@@ -16,4 +16,3 @@ class FetchFeautredBooksUseCase extends UseCase<List<BookEntity>, NoParam> {
 }
 
 // you can write void replace NoParam
-
