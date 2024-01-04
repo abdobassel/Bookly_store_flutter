@@ -5,7 +5,7 @@ class DioHelper {
   static init() {
     dio = Dio(
       BaseOptions(
-          baseUrl: 'https://student.valuxapps.com/api/',
+          baseUrl: 'https://www.googleapis.com/books/v1/',
           receiveDataWhenStatusError: true),
     );
   }
