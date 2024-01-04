@@ -1,6 +1,9 @@
+import 'package:book_store/constants.dart';
 import 'package:book_store/core/utilis/api_service.dart';
+import 'package:book_store/core/utilis/functions/save_books_hive.dart';
 import 'package:book_store/features/home/data/models/book_model/book_model.dart';
 import 'package:book_store/features/home/domain/entities/book_entity.dart';
+import 'package:hive/hive.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeautredBooks();
@@ -26,6 +29,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
         endPoint: 'volumes?q=programming&Filtering=free-ebooks&Sorting=newest');
 
     List<BookEntity> books = getBookList(data);
+    saveHiveBooks(books, KFeaturedBox);
     return books;
   }
 
