@@ -7,13 +7,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 
 void main() async {
   WidgetsFlutterBinding();
   DioHelper.init();
-  runApp(const BooklyApp());
+  await Hive.initFlutter();
+
   Hive.registerAdapter(BookEntityAdapter());
-  await Hive.openBox(KFeaturedBox);
+  await Hive.openBox<BookEntity>(KFeaturedBox);
+  await Hive.openBox<BookEntity>(KNewestBox);
+  runApp(const BooklyApp());
 }
 
 class BooklyApp extends StatelessWidget {
