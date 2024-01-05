@@ -13,7 +13,9 @@ class SimilarListViewBooksHorzntal extends StatelessWidget {
         physics: BouncingScrollPhysics(),
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => FeautredListViewItem(),
+        itemBuilder: (context, index) => FeautredListViewItem(
+          image: '',
+        ),
         itemCount: 10,
       ),
     );
