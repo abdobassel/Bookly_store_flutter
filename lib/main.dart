@@ -1,4 +1,5 @@
 import 'package:book_store/apiDio/apidio.dart';
+import 'package:book_store/bloc_observer.dart';
 import 'package:book_store/constants.dart';
 import 'package:book_store/core/utilis/app_router.dart';
 import 'package:book_store/core/utilis/functions/setup_service_getit.dart';
@@ -14,14 +15,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
 
-void main() async {
-  WidgetsFlutterBinding();
-  DioHelper.init();
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await Hive.initFlutter();
-  setupServiceLocator();
+
   Hive.registerAdapter(BookEntityAdapter());
   await Hive.openBox<BookEntity>(KFeaturedBox);
   await Hive.openBox<BookEntity>(KNewestBox);
+  Bloc.observer = MyBlocObserver();
+
+  setupServiceLocator();
   runApp(const BooklyApp());
 }
 
@@ -32,11 +36,12 @@ class BooklyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) {
+        BlocProvider<FeaturedBooksCubit>(create: (context) {
           return FeaturedBooksCubit(
-              FetchFeautredBooksUseCase(getIt.get<HomeRepoImpl>()));
+              FetchFeautredBooksUseCase(getIt.get<HomeRepoImpl>()))
+            ..fetchFeaturedBooks();
         }),
-        BlocProvider(create: (context) {
+        BlocProvider<NewsetBooksCubit>(create: (context) {
           return NewsetBooksCubit(
               FetchNewestBooksUseCase(getIt.get<HomeRepoImpl>()));
         })
