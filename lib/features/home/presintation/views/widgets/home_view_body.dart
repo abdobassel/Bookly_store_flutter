@@ -5,6 +5,7 @@ import 'package:book_store/features/home/presintation/views/widgets/bestSeller_i
 import 'package:book_store/features/home/presintation/views/widgets/featuredBooksBlocBuilder.dart';
 import 'package:book_store/features/home/presintation/views/widgets/futuredListView.dart';
 import 'package:book_store/features/home/presintation/views/widgets/listview_seller.dart';
+import 'package:book_store/features/home/presintation/views/widgets/newset_books_lis_bloc_builder.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -38,7 +39,7 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
         ),
-        SliverToBoxAdapter(child: BestSellerListView())
+        SliverToBoxAdapter(child: NewstBooksLisBlocBuilder())
       ],
     );
   }

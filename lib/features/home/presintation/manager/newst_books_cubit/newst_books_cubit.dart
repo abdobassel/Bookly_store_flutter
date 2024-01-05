@@ -11,6 +11,7 @@ class NewsetBooksCubit extends Cubit<NewsetBooksStates> {
     var result = await newestBooksUseCase.call();
     result.fold((failure) {
       emit(NewsetFailureState(failure.toString()));
+      print(failure.message.toString());
     }, (books) {
       emit(NewsetSuccessState(books));
     });
