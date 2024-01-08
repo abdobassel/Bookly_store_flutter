@@ -6,17 +6,33 @@ import 'package:book_store/features/home/presintation/views/widgets/futuredListV
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class FeaturedBooksListBlocBuilder extends StatelessWidget {
+class FeaturedBooksListBlocBuilder extends StatefulWidget {
   FeaturedBooksListBlocBuilder({
     super.key,
   });
 
   @override
+  State<FeaturedBooksListBlocBuilder> createState() =>
+      _FeaturedBooksListBlocBuilderState();
+}
+
+class _FeaturedBooksListBlocBuilderState
+    extends State<FeaturedBooksListBlocBuilder> {
+  List<BookEntity> books = [];
+  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FeaturedBooksCubit, FeaturedBooksStates>(
-        builder: (context, state) {
+    return BlocConsumer<FeaturedBooksCubit, FeaturedBooksStates>(
+        listener: (context, state) {
       if (state is FeaturedSuccessState) {
-        return FuturedBooksLisView(books: state.books);
+        books.addAll(state.books);
+      }
+    }, builder: (context, state) {
+      if (state is FeaturedSuccessState ||
+          state is FeaturedLoadingPaginationState ||
+          state is FeaturedFailurePaginationState) {
+        return FuturedBooksLisView(
+          books: books,
+        );
       } else if (state is FeaturedFailureState) {
         return Text(state.error.toString());
       } else {
