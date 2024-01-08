@@ -17,7 +17,10 @@ class SearchViewBody extends StatelessWidget {
             'Search Results',
             style: Styles.textStyle22,
           ),
-          Expanded(child: searchListViewBooks())
+          Expanded(
+              child: searchListViewBooks(
+            image: '',
+          ))
         ]));
   }
 }

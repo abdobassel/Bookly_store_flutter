@@ -14,7 +14,9 @@ class NewstBooksLisBlocBuilder extends StatelessWidget {
     return BlocBuilder<NewsetBooksCubit, NewsetBooksStates>(
         builder: (context, state) {
       if (state is NewsetSuccessState) {
-        return BestSellerListView();
+        return BestSellerListView(
+          books: state.books,
+        );
       } else if (state is NewsetFailureState) {
         return Text(state.error.toString());
       } else {

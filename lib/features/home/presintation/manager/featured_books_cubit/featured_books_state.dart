@@ -1,4 +1,5 @@
 import 'package:book_store/features/home/domain/entities/book_entity.dart';
+import 'package:dartz/dartz.dart';
 
 abstract class FeaturedBooksStates {}
 

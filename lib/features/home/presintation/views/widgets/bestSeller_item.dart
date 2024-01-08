@@ -2,12 +2,17 @@ import 'package:book_store/core/utilis/app_router.dart';
 import 'package:book_store/core/utilis/assets.dart';
 import 'package:book_store/core/utilis/styles.dart';
 import 'package:book_store/features/home/presintation/views/widgets/ratingRowSellerItem.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 class BestSellerListItem extends StatelessWidget {
-  const BestSellerListItem({super.key});
+  const BestSellerListItem({
+    super.key,
+    required this.image,
+  });
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +26,9 @@ class BestSellerListItem extends StatelessWidget {
           children: [
             AspectRatio(
               aspectRatio: 2.8 / 4,
-              child: Container(
-                decoration: BoxDecoration(
+              child: ClipRRect(
                   borderRadius: BorderRadius.circular(16),
-                  image: DecorationImage(
-                      image: AssetImage(
-                        AssetsData.test,
-                      ),
-                      fit: BoxFit.fill),
-                ),
-              ),
+                  child: CachedNetworkImage(imageUrl: image)),
             ),
             SizedBox(
               width: 30,
@@ -42,9 +40,9 @@ class BestSellerListItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .5,
                     child: Text(
-                      'Hary Potter HEllo  HleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeoHleoeo',
+                      'title',
                       style: Styles.textStyle22,
-                      maxLines: 2,
+                      maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
@@ -52,7 +50,7 @@ class BestSellerListItem extends StatelessWidget {
                     height: 4,
                   ),
                   Text(
-                    'Hary Potter',
+                    'author',
                     style: Styles.textStyle16,
                   ),
                   Row(

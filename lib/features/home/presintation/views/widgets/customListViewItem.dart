@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 class FeautredListViewItem extends StatelessWidget {
   const FeautredListViewItem({super.key, required this.image});
   final String image;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

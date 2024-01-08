@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RatingItemSeller extends StatelessWidget {
-  const RatingItemSeller({super.key});
+  const RatingItemSeller({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class RatingItemSeller extends StatelessWidget {
           width: 6,
         ),
         Text(
-          '4.6',
+          '5',
           style: Styles.textStyle20,
         ),
         SizedBox(

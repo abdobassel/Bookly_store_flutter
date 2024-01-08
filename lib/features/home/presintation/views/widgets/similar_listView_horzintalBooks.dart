@@ -1,10 +1,11 @@
+import 'package:book_store/features/home/domain/entities/book_entity.dart';
 import 'package:book_store/features/home/presintation/views/widgets/customListViewItem.dart';
 
 import 'package:flutter/material.dart';
 
 class SimilarListViewBooksHorzntal extends StatelessWidget {
-  const SimilarListViewBooksHorzntal({super.key});
-
+  const SimilarListViewBooksHorzntal({super.key, required this.books});
+  final List<BookEntity> books;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,9 +15,9 @@ class SimilarListViewBooksHorzntal extends StatelessWidget {
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => FeautredListViewItem(
-          image: '',
+          image: books[index].image!,
         ),
-        itemCount: 10,
+        itemCount: books.length,
       ),
     );
   }

@@ -1,5 +1,8 @@
 import 'package:book_store/constants.dart';
 import 'package:book_store/core/utilis/styles.dart';
+import 'package:book_store/features/home/domain/entities/book_entity.dart';
+import 'package:book_store/features/home/presintation/manager/featured_books_cubit/featured_books_cubit.dart';
+import 'package:book_store/features/home/presintation/manager/featured_books_cubit/featured_books_state.dart';
 import 'package:book_store/features/home/presintation/views/widgets/book_details_items.dart';
 import 'package:book_store/features/home/presintation/views/widgets/books_actions.dart';
 import 'package:book_store/features/home/presintation/views/widgets/customListViewItem.dart';
@@ -7,13 +10,18 @@ import 'package:book_store/features/home/presintation/views/widgets/custom_image
 import 'package:book_store/features/home/presintation/views/widgets/ratingRowSellerItem.dart';
 import 'package:book_store/features/home/presintation/views/widgets/similar_listView_horzintalBooks.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BookDeatailsViewBody extends StatelessWidget {
-  const BookDeatailsViewBody({super.key});
+  const BookDeatailsViewBody({
+    super.key,
+  });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+  ) {
     var width = MediaQuery.of(context).size.width;
     print(width);
     return CustomScrollView(
@@ -55,7 +63,7 @@ class BookDeatailsViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                SimilarListViewBooksHorzntal(),
+                SimilarListViewBlocBuilder(),
                 const SizedBox(
                   height: 30,
                 ),
@@ -65,5 +73,27 @@ class BookDeatailsViewBody extends StatelessWidget {
         )
       ],
     );
+  }
+}
+
+class SimilarListViewBlocBuilder extends StatelessWidget {
+  const SimilarListViewBlocBuilder({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<FeaturedBooksCubit, FeaturedBooksStates>(
+        builder: (context, state) {
+      if (state is FeaturedSuccessState) {
+        return SimilarListViewBooksHorzntal(books: state.books);
+      } else if (state is FeaturedFailureState) {
+        return Text(state.error.toString());
+      } else {
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      }
+    });
   }
 }

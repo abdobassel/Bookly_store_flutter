@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 
 abstract class HomeRepo {
   // what is will happening in home feautre ..
-  Future<Either<Failure, List<BookEntity>>> fetchFeautredBooks();
+  Future<Either<Failure, List<BookEntity>>> fetchFeautredBooks(
+      {int pageNumber = 0});
   Future<Either<Failure, List<BookEntity>>> fetchNewsedBooks();
 }

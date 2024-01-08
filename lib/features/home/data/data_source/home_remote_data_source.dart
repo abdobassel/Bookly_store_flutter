@@ -3,10 +3,9 @@ import 'package:book_store/core/utilis/api_service.dart';
 import 'package:book_store/core/utilis/functions/save_books_hive.dart';
 import 'package:book_store/features/home/data/models/book_model/book_model.dart';
 import 'package:book_store/features/home/domain/entities/book_entity.dart';
-import 'package:hive/hive.dart';
 
 abstract class HomeRemoteDataSource {
-  Future<List<BookEntity>> fetchFeautredBooks();
+  Future<List<BookEntity>> fetchFeautredBooks({int pageNumber = 0});
   Future<List<BookEntity>> fetchNewsedBooks();
 }
 
@@ -15,9 +14,10 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
   HomeRemoteDataSourceImpl(this.apiService);
   @override
-  Future<List<BookEntity>> fetchFeautredBooks() async {
+  Future<List<BookEntity>> fetchFeautredBooks({int pageNumber = 0}) async {
     var data = await apiService.getData(
-        endPoint: 'volumes?q=programming&Filtering=free-ebooks');
+        endPoint:
+            'volumes?q=programming&Filtering=free-ebooks&startIndex=${pageNumber * 10}');
 
     List<BookEntity> books = getBookList(data);
     saveHiveBooks(books, KFeaturedBox);
@@ -27,7 +27,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   @override
   Future<List<BookEntity>> fetchNewsedBooks() async {
     var data = await apiService.getData(
-        endPoint: 'volumes?q=programming&Filtering=free-ebooks&Sorting=newest');
+        endPoint: 'volumes?q=general&Filtering=free-ebooks&Sorting=newest');
 
     List<BookEntity> books = getBookList(data);
     saveHiveBooks(books, KNewestBox);
