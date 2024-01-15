@@ -1,8 +1,11 @@
+import 'package:book_store/core/utilis/app_router.dart';
 import 'package:book_store/features/home/domain/entities/book_entity.dart';
 import 'package:book_store/features/home/presintation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:book_store/features/home/presintation/views/widgets/customListViewItem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:go_router/go_router.dart';
 
 class FuturedBooksLisView extends StatefulWidget {
   const FuturedBooksLisView({
@@ -56,7 +59,13 @@ class _FuturedBooksLisViewState extends State<FuturedBooksLisView> {
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return FeautredListViewItem(image: widget.books[index].image ?? '');
+          return InkWell(
+              onTap: () {
+                GoRouter.of(context).push('${AppRouter.KBookDetailsView}',
+                    extra: widget.books[index]);
+              },
+              child:
+                  FeautredListViewItem(image: widget.books[index].image ?? ''));
         },
 
         itemCount: widget.books.length, // Add 1 for the loading indicator

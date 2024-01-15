@@ -9,6 +9,9 @@ class CustomSearchField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: DefaultTextForm(
+        onchange: (value) {
+          print(value);
+        },
         controller: searchController,
         labeltext: 'Search...',
         type: TextInputType.text,

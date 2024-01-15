@@ -36,7 +36,7 @@ class _FeaturedBooksListBlocBuilderState
       } else if (state is FeaturedFailureState) {
         return Text(state.error.toString());
       } else {
-        return CircularProgressIndicator();
+        return Center(child: CircularProgressIndicator());
       }
     });
   }

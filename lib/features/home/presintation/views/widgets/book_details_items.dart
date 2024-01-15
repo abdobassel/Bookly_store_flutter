@@ -11,21 +11,21 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class BookDetailsItems extends StatelessWidget {
   const BookDetailsItems({
     super.key,
+    required this.bookEntity,
   });
+  final BookEntity bookEntity;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FeaturedBooksCubit, FeaturedBooksStates>(
       builder: (context, state) {
-        var cubit = FeaturedBooksCubit.get(context);
-
         if (state is FeaturedSuccessState)
           return Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                '',
+                bookEntity.title,
                 style: Styles.textStyle30,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -34,7 +34,7 @@ class BookDetailsItems extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                '',
+                bookEntity.authorName!,
                 style: Styles.textStyle20.copyWith(
                   color: Colors.grey[400],
                   fontFamily: KGtSectraFineFontFamily,

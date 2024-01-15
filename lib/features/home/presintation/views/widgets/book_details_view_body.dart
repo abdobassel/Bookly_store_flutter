@@ -16,8 +16,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class BookDeatailsViewBody extends StatelessWidget {
   const BookDeatailsViewBody({
     super.key,
+    required this.bookEntity,
   });
-
+  final BookEntity bookEntity;
   @override
   Widget build(
     BuildContext context,
@@ -37,12 +38,12 @@ class BookDeatailsViewBody extends StatelessWidget {
               children: [
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width * .18),
-                  child: CustomImageItem(),
+                  child: CustomImageItem(bookEntity: bookEntity),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                BookDetailsItems(),
+                BookDetailsItems(bookEntity: bookEntity),
                 const SizedBox(
                   height: 20,
                 ),

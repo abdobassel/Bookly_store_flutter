@@ -13,12 +13,12 @@ class BooksAction extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(12),
                     bottomLeft: Radius.circular(12)),
-                text: r'19.8 $',
+                text: r'دي بقى فري',
                 textColor: Colors.black,
                 backColor: Colors.white)),
         Expanded(
             child: CustomButton(
-                text: r'19.8 $',
+                text: r'مجاني free',
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12),
                     bottomRight: Radius.circular(12)),

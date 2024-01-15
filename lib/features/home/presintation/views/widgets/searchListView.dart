@@ -18,6 +18,9 @@ class searchListViewBooks extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: BestSellerListItem(
           image: '',
+          author: '22222',
+          bookId: '1',
+          title: '1111',
         ),
       ),
     );

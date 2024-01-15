@@ -10,24 +10,19 @@ class FeautredListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        GoRouter.of(context).push(AppRouter.KBookDetailsView);
-      },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 6),
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height * .25,
-          child: AspectRatio(
-              aspectRatio: 2.9 / 4,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: CachedNetworkImage(
-                  imageUrl: image,
-                  fit: BoxFit.fill,
-                ),
-              )),
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 6),
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * .25,
+        child: AspectRatio(
+            aspectRatio: 2.9 / 4,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: CachedNetworkImage(
+                imageUrl: image,
+                fit: BoxFit.fill,
+              ),
+            )),
       ),
     );
   }

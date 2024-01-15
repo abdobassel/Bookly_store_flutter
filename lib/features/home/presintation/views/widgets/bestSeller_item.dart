@@ -11,62 +11,63 @@ class BestSellerListItem extends StatelessWidget {
   const BestSellerListItem({
     super.key,
     required this.image,
+    required this.author,
+    required this.title,
+    required this.bookId,
   });
   final String image;
+  final String author;
+  final String title;
+  final String bookId;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        GoRouter.of(context).push(AppRouter.KBookDetailsView);
-      },
-      child: SizedBox(
-        height: 120,
-        child: Row(
-          children: [
-            AspectRatio(
-              aspectRatio: 2.8 / 4,
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: CachedNetworkImage(imageUrl: image)),
+    return SizedBox(
+      height: 120,
+      child: Row(
+        children: [
+          AspectRatio(
+            aspectRatio: 2.8 / 4,
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: CachedNetworkImage(imageUrl: image)),
+          ),
+          SizedBox(
+            width: 30,
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * .5,
+                  child: Text(
+                    title,
+                    style: Styles.textStyle22,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                SizedBox(
+                  height: 4,
+                ),
+                Text(
+                  author,
+                  style: Styles.textStyle16,
+                ),
+                Row(
+                  children: [
+                    Text('19' r'$',
+                        style: Styles.textStyle22
+                            .copyWith(fontWeight: FontWeight.bold)),
+                    Spacer(),
+                    RatingItemSeller(),
+                  ],
+                )
+              ],
             ),
-            SizedBox(
-              width: 30,
-            ),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * .5,
-                    child: Text(
-                      'title',
-                      style: Styles.textStyle22,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Text(
-                    'author',
-                    style: Styles.textStyle16,
-                  ),
-                  Row(
-                    children: [
-                      Text('19' r'$',
-                          style: Styles.textStyle22
-                              .copyWith(fontWeight: FontWeight.bold)),
-                      Spacer(),
-                      RatingItemSeller(),
-                    ],
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
