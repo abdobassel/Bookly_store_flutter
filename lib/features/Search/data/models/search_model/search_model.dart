@@ -1,8 +1,10 @@
+import 'package:book_store/features/Search/domain/entities.dart/searchEntity.dart';
+
 import 'access_info.dart';
 import 'sale_info.dart';
 import 'volume_info.dart';
 
-class SearchModel {
+class SearchModel extends SearchEntity {
   String? kind;
   String? id;
   String? etag;
@@ -19,7 +21,11 @@ class SearchModel {
     this.volumeInfo,
     this.saleInfo,
     this.accessInfo,
-  });
+  }) : super(
+            author: volumeInfo?.authors?.first ?? 'Unkouwn ',
+            bookid: id!,
+            img: volumeInfo?.imageLinks?.thumbnail ?? '',
+            title: volumeInfo?.title ?? 'Title');
 
   factory SearchModel.fromJson(Map<String, dynamic> json) => SearchModel(
         kind: json['kind'] as String?,
