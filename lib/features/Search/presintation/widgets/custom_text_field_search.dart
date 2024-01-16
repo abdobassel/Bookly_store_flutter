@@ -16,24 +16,21 @@ class CustomSearchField extends StatelessWidget {
   var searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) =>
-            SearchCubitCubit(SearchDataUseCase(getIt.get<SearchRepoImpl>())),
-        child: BlocConsumer<SearchCubitCubit, SearchCubitState>(
-            listener: (context, state) {},
-            builder: (context, state) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: DefaultTextForm(
-                  onchange: (value) {
-                    SearchCubitCubit.get(context).getSearchBooks(q: value);
-                  },
-                  controller: searchController,
-                  labeltext: 'Search...',
-                  type: TextInputType.text,
-                  suffixIcon: Icons.search,
-                ),
-              );
-            }));
+    return BlocConsumer<SearchCubitCubit, SearchCubitState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: DefaultTextForm(
+              onchange: (value) {
+                SearchCubitCubit.get(context).getSearchBooks(q: value);
+              },
+              controller: searchController,
+              labeltext: 'Search...',
+              type: TextInputType.text,
+              suffixIcon: Icons.search,
+            ),
+          );
+        });
   }
 }
