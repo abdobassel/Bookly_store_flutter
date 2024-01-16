@@ -56,16 +56,14 @@ class BestSellerListItem extends StatelessWidget {
                   maxLines: 1,
                   style: Styles.textStyle16,
                 ),
-                Expanded(
-                  child: Row(
-                    children: [
-                      Text('free NoMoney',
-                          style: Styles.textStyle22
-                              .copyWith(fontWeight: FontWeight.bold)),
-                      Spacer(),
-                      RatingItemSeller(),
-                    ],
-                  ),
+                Row(
+                  children: [
+                    Text('free NoMoney',
+                        style: Styles.textStyle22
+                            .copyWith(fontWeight: FontWeight.bold)),
+                    Spacer(),
+                    RatingItemSeller(),
+                  ],
                 )
               ],
             ),
